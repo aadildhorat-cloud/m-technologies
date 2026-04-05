@@ -748,21 +748,35 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 25px;
+    }
+}
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-colors">
-                    <span class="light-blue"></span>
-                    <span class="purple"></span>
-                    <span class="red"></span>
-                </div>
-                <span>M-TECHNOLOGIES</span>
-            </div>
+   <!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="M-Technologies Logo" class="logo-image">
+        
+        </div>
             <!-- START HIVE TIMES BADGE (YELLOW EDITION) -->
 <style>
   /* Badge Container */
