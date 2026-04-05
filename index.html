@@ -1,781 +1,981 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="M-Technologies - Specialist in BMW Spares, Parts, Accessories, Detailing & Headlight Restoration in Overport, Durban">
-    <meta name="keywords" content="BMW, detailing, headlight restoration, BMW parts, Durban, Overport">
-    <title>M-Technologies | BMW Specialist - Detailing & Headlight Restoration</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bmw-light-blue: #81C4FF;
-            --bmw-dark-blue: #16588E;
-            --bmw-red: #E7222E;
-            --bmw-purple: #2B115A;
-            --whatsapp-green: #25D366;
-            --dark: #1a1a1a;
-            --gray: #2d2d2d;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--dark);
-        }
-
-        .logo-colors {
-            display: flex;
-            gap: 3px;
-        }
-
-        .logo-colors span {
-            width: 15px;
-            height: 30px;
-            display: inline-block;
-        }
-
-        .logo-colors .light-blue { background: var(--bmw-light-blue); }
-        .logo-colors .purple { background: var(--bmw-purple); }
-        .logo-colors .red { background: var(--bmw-red); }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--bmw-dark-blue);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--bmw-red);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--bmw-light-blue) 0%, var(--bmw-dark-blue) 50%, var(--bmw-purple) 100%);
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: bottom;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-content h2 {
-            font-size: 2rem;
-            color: var(--bmw-light-blue);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--white);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--bmw-red);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: #c41c26;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(231, 34, 46, 0.3);
-        }
-
-        .btn-whatsapp {
-            background: var(--whatsapp-green);
-            color: var(--white);
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .hero-image {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .hero-image img {
-            width: 100%;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--bmw-light-blue), var(--bmw-red));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-gray);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--bmw-dark-blue);
-        }
-
-        .about-features {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .about-features li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .about-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--bmw-red);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .service-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--bmw-red);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 10;
-        }
-
-        .service-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--bmw-dark-blue), var(--bmw-light-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
-
-        .service-content {
-            padding: 1.5rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .service-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .service-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--bmw-red);
-            margin-bottom: 1rem;
-        }
-
-        .service-price span {
-            font-size: 0.9rem;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features li {
-            padding: 0.3rem 0;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .service-features li::before {
-            content: '▸ ';
-            color: var(--bmw-dark-blue);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Before/After Gallery */
-        .gallery {
-            background: var(--light-gray);
-        }
-
-        .comparison-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .comparison-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .comparison-labels {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 0.5rem 0;
-            font-weight: 700;
-        }
-
-        .comparison-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            position: relative;
-        }
-
-        .comparison-images img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .arrow {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--whatsapp-green);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border: 3px solid var(--bmw-light-blue);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--bmw-red);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: 'POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bmw-red);
-            color: white;
-            padding: 0.3rem 1.5rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .pricing-amount {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--bmw-red);
-            margin: 1rem 0;
-        }
-
-        .pricing-amount span {
-            font-size: 1rem;
-            color: #999;
-            display: block;
-            font-weight: 400;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .pricing-features li::before {
-            content: '✓ ';
-            color: var(--whatsapp-green);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        .vat-notice {
-            text-align: center;
-            margin-top: 2rem;
-            color: #999;
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
-            color: white;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--bmw-light-blue);
-        }
-
-        .contact-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-card p, .contact-card a {
-            color: var(--bmw-light-blue);
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .contact-card a:hover {
-            color: var(--white);
-        }
-
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--whatsapp-green);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 999;
-            text-decoration: none;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--bmw-light-blue);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .pricing-card.featured:hover {
-                transform: scale(1) translateY(-10px);
-            }
-        }
-
-        /* Scroll animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-image {
-    height: 50px; /* Adjust size as needed */
-    width: auto;
-    object-fit: contain;
-}
-
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-    .logo-image {
-        height: 25px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sapphire Auto Detailing | Premium Mobile Service</title>
+  <meta name="description" content="The Showroom Shine, Delivered to Your Doorstep. Premium mobile auto detailing in Gauteng."/>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+  
+  <style>
+    /* ===== CSS VARIABLES & THEME ===== */
+    :root {
+      /* Colors - Deep Obsidian Theme */
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      
+      /* Accents */
+      --sapphire-blue: #4A90E2;
+      --sapphire-glow: rgba(74, 144, 226, 0.4);
+      --diamond-white: #f8f9fa;
+      --diamond-glow: rgba(248, 249, 250, 0.15);
+      
+      /* Package Tiers */
+      --emerald: #2ecc71;
+      --diamond: #f1c40f;
+      --sapphire: #4A90E2;
+      
+      /* Glassmorphism */
+      --glass-bg: rgba(30, 41, 59, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      
+      /* Typography */
+      --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+      --text-primary: var(--diamond-white);
+      --text-secondary: rgba(248, 249, 250, 0.75);
+      
+      /* Spacing & Layout */
+      --container-max: 1280px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      
+      /* Transitions */
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-}
-    </style>
+
+    /* ===== BASE RESET & TYPOGRAPHY ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== GLASSMORPHISM UTILITIES ===== */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* ===== STICKY WHATSAPP CTA ===== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      transition: var(--transition-bounce);
+      animation: pulse 2s infinite;
+    }
+
+    .sticky-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    }
+
+    .sticky-cta i {
+      font-size: 1.4rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7); }
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      padding: 16px 24px;
+      transition: var(--transition-smooth);
+    }
+
+    .site-header.scrolled {
+      padding: 12px 24px;
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    .logo-text .accent {
+      color: var(--sapphire-blue);
+    }
+
+    .desktop-nav {
+      display: none;
+      gap: 32px;
+    }
+
+    .desktop-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a.active {
+      color: var(--sapphire-blue);
+    }
+
+    .desktop-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--sapphire-blue);
+      transition: var(--transition-smooth);
+    }
+
+    .desktop-nav a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger-line {
+      width: 24px;
+      height: 2px;
+      background: var(--diamond-white);
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: 16px 24px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .menu-item {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      transition: var(--transition-smooth);
+    }
+
+    .menu-item:hover {
+      background: var(--sapphire-glow);
+      color: var(--sapphire-blue);
+      transform: translateX(4px);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero-section {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      z-index: 2;
+      padding-right: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--sapphire-blue), var(--diamond-white));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-bounce);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--sapphire-blue), #357abd);
+      color: white;
+      box-shadow: 0 4px 20px var(--sapphire-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--sapphire-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--diamond-white);
+      border: 2px solid var(--glass-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--sapphire-blue);
+      background: var(--sapphire-glow);
+    }
+
+    .btn-package {
+      width: 100%;
+      margin-top: 20px;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-package:hover {
+      background: var(--sapphire-glow);
+      border-color: var(--sapphire-blue);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      width: 100%;
+      margin-top: 24px;
+      justify-content: center;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    /* ===== 3D CAR SCENE ===== */
+    .car-scene {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 100px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-header .accent {
+      color: var(--sapphire-blue);
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* ===== BEFORE/AFTER SLIDER ===== */
+    .before-after-wrapper {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .before-after-slider {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      cursor: ew-resize;
+      user-select: none;
+    }
+
+    .ba-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .ba-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ba-before {
+      z-index: 1;
+    }
+
+    .ba-after {
+      width: 50%;
+      border-right: 3px solid var(--sapphire-blue);
+      z-index: 2;
+    }
+
+    .ba-label {
+      position: absolute;
+      top: 20px;
+      padding: 6px 16px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    .ba-before .ba-label {
+      right: 20px;
+    }
+
+    .ba-after .ba-label {
+      left: 20px;
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 40px;
+      height: 100%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: ew-resize;
+    }
+
+    .ba-handle-inner {
+      width: 40px;
+      height: 40px;
+      background: var(--sapphire-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 20px var(--sapphire-glow);
+      transition: var(--transition-smooth);
+    }
+
+    .ba-handle:hover .ba-handle-inner,
+    .ba-handle:focus .ba-handle-inner {
+      transform: scale(1.1);
+    }
+
+    .ba-handle:focus {
+      outline: 2px solid var(--diamond-white);
+      outline-offset: 4px;
+    }
+
+    /* ===== SERVICES GRID ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .service-card {
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sapphire-blue);
+      box-shadow: 0 12px 40px rgba(74, 144, 226, 0.25);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--sapphire-blue);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ===== PACKAGES GRID ===== */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .package-card {
+      padding: 32px;
+      position: relative;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .package-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sapphire-blue);
+    }
+
+    .package-card.featured {
+      border: 2px solid var(--sapphire-blue);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(30, 41, 59, 0.7));
+    }
+
+    .package-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--sapphire-blue);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px var(--sapphire-glow);
+    }
+
+    .package-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .package-tier {
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+
+    .package-tier.emerald { color: var(--emerald); background: rgba(46, 204, 113, 0.15); }
+    .package-tier.diamond { color: var(--diamond); background: rgba(241, 196, 15, 0.15); }
+    .package-tier.sapphire { color: var(--sapphire); background: rgba(74, 144, 226, 0.15); }
+
+    .package-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--diamond-white);
+    }
+
+    .package-features {
+      list-style: none;
+      flex: 1;
+    }
+
+    .package-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .package-features i {
+      color: var(--emerald);
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      padding-bottom: 40px;
+    }
+
+    .contact-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .contact-content h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-content p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--text-secondary);
+    }
+
+    .contact-item i {
+      color: var(--sapphire-blue);
+      font-size: 1.2rem;
+    }
+
+    .contact-item a {
+      color: var(--diamond-white);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .contact-item a:hover {
+      color: var(--sapphire-blue);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-links a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--diamond-white);
+      text-decoration: none;
+      transition: var(--transition-bounce);
+      border: 1px solid var(--glass-border);
+    }
+
+    .social-links a:hover {
+      background: var(--sapphire-blue);
+      transform: translateY(-4px);
+      border-color: var(--sapphire-blue);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    .footer-note {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+      padding: 20px;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 500px;
+      padding: 32px;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-tertiary);
+      color: var(--diamond-white);
+    }
+
+    .modal h3 {
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+    }
+
+    .modal > p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    #whatsapp-form label {
+      display: block;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    #whatsapp-form label span {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    #whatsapp-form input,
+    #whatsapp-form select {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    #whatsapp-form input:focus,
+    #whatsapp-form select:focus {
+      outline: none;
+      border-color: var(--sapphire-blue);
+      box-shadow: 0 0 0 3px var(--sapphire-glow);
+    }
+
+    /* ===== REVEAL ON SCROLL ANIMATION ===== */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-smooth);
+    }
+
+    .reveal-on-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== SCROLL INDICATOR ===== */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    .scroll-indicator i {
+      font-size: 1.2rem;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+      }
+      
+      .hamburger {
+        display: none;
+      }
+      
+      .hero-section {
+        grid-template-columns: 1fr 1fr;
+        padding: 140px 48px 100px;
+      }
+      
+      .hero-content {
+        padding-right: 40px;
+      }
+      
+      .car-scene {
+        width: 50%;
+        right: 5%;
+      }
+      
+      .before-after-slider {
+        height: 600px;
+      }
+      
+      .contact-content {
+        padding: 56px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      :root {
+        --radius-lg: 32px;
+      }
+      
+      .hero-title {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+      }
+      
+      .packages-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .package-card.featured {
+        transform: scale(1.05);
+        z-index: 2;
+      }
+      
+      .package-card.featured:hover {
+        transform: scale(1.08) translateY(-8px);
+      }
+    }
+
+    /* ===== ACCESSIBILITY ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--sapphire-blue);
+      outline-offset: 4px;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--sapphire-blue);
+      color: white;
+      padding: 8px 16px;
+      z-index: 3000;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
 </head>
 <body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#hero" class="skip-link">Skip to content</a>
 
-   <!-- Navigation -->
-<nav id="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="images/logo.jpg" alt="M-Technologies Logo" class="logo-image">
-        
+  <!-- Sticky WhatsApp CTA -->
+  <a href="#" id="whatsapp-cta" class="sticky-cta" aria-label="Book Your Detail via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span>Book Your Detail</span>
+  </a>
+
+  <!-- Header / Navigation -->
+  <header class="site-header glass">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">💎</span>
+        <span class="logo-text">SAPPHIRE<span class="accent">AUTO</span></span>
+      </div>
+
+      <!-- START HIVE TIMES BADGE (YELLOW EDITION) -->
 <style>
   /* Badge Container */
   .hive-badge-link {
@@ -842,7 +1042,7 @@
   /* Mobile Adjustments */
   @media (max-width: 480px) {
     .hive-badge-link {
-      padding: 4px 8px;
+      padding: 5px 10px;
     }
     .hive-icon-svg {
       width: 16px;
@@ -850,10 +1050,7 @@
       margin-right: 6px;
     }
     .hive-text {
-     
-        .hive-text { font-size: 10px; }
-    .hive-subtext { font-size: 7px; display: none; } /* Hide subtext on very small screens */
-    .hive-icon-svg { width: 14px; height: 14px; }
+      font-size: 11px;
     }
     .hive-subtext {
       font-size: 8px;
@@ -878,476 +1075,741 @@
 
 </a>
 <!-- END HIVE TIMES BADGE -->
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+      
+      <nav class="desktop-nav">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu (3D Animated) -->
+    <div class="mobile-menu glass">
+      <a href="#hero" class="menu-item">🏠 Home</a>
+      <a href="#services" class="menu-item">✨ Services</a>
+      <a href="#packages" class="menu-item">💎 Packages</a>
+      <a href="#contact" class="menu-item">📍 Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION with 3D Car -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content reveal-on-scroll">
+      <h1 class="hero-title">
+        The Showroom Shine,<br/>
+        <span class="gradient-text">Delivered to Your Doorstep.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Premium mobile auto detailing in Gauteng. Paint correction, decontamination & ceramic protection — where you are.
+      </p>
+      <div class="hero-actions">
+        <a href="#packages" class="btn btn-primary">View Packages</a>
+        <a href="#services" class="btn btn-secondary">Our Services</a>
+      </div>
+    </div>
+    
+    <!-- 3D Car Container -->
+    <div id="car-scene" class="car-scene" aria-hidden="true">
+      <!-- Three.js canvas injected here -->
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll to Explore</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="services-section">
+    <div class="section-header reveal-on-scroll">
+      <h2>Expert <span class="accent">Paint Correction</span> & Decontamination</h2>
+      <p>See the transformation. Drag the slider to compare.</p>
+    </div>
+    
+    <!-- Before/After Interactive Slider -->
+    <div class="before-after-wrapper reveal-on-scroll">
+      <div class="before-after-slider" id="ba-slider">
+        <div class="ba-image ba-before">
+          <!-- Placeholder: Replace with actual before image -->
+          <img src="images/car-after.jpg" alt="Before paint correction" loading="lazy">
+          <span class="ba-label">After</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Specialist in BMW</h1>
-                <h2>Spares, Parts & Accessories</h2>
-                <p>Professional detailing and headlight restoration services in Overport, Durban. Experience excellence with our one-car-per-day policy.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-cog"></i> Our Services
-                    </a>
-                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20your%20services.%20Please%20assist." class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Contact Us
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Simplified BMW M4 illustration -->
-                    <defs>
-                        <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#f5f5f5;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <!-- Car body -->
-                    <path d="M 100 280 Q 100 250 150 240 L 200 235 L 250 220 L 450 210 L 650 220 L 720 240 Q 750 250 750 280 L 750 320 L 700 330 L 700 310 Q 700 290 680 285 L 650 280 L 650 340 L 600 350 L 600 330 L 250 330 L 250 350 L 200 340 L 200 290 L 150 295 Q 120 300 120 320 L 120 330 L 50 320 L 50 280 Z" 
-                          fill="url(#carGradient)" stroke="#333" stroke-width="2"/>
-                    <!-- Windows -->
-                    <path d="M 260 225 L 440 220 L 430 270 L 270 275 Z" fill="#2a2a2a" opacity="0.8"/>
-                    <path d="M 460 218 L 640 228 L 635 275 L 455 270 Z" fill="#2a2a2a" opacity="0.8"/>
-                    <!-- Wheels -->
-                    <circle cx="225" cy="340" r="50" fill="#1a1a1a"/>
-                    <circle cx="225" cy="340" r="35" fill="url(#wheelGradient)"/>
-                    <circle cx="625" cy="340" r="50" fill="#1a1a1a"/>
-                    <circle cx="625" cy="340" r="35" fill="url(#wheelGradient)"/>
-                    <!-- Wheel rims with gold color -->
-                    <defs>
-                        <radialGradient id="wheelGradient">
-                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
-                        </radialGradient>
-                    </defs>
-                    <circle cx="225" cy="340" r="20" fill="#FFD700"/>
-                    <circle cx="625" cy="340" r="20" fill="#FFD700"/>
-                    <!-- Headlights -->
-                    <ellipse cx="680" cy="260" rx="25" ry="15" fill="#87CEEB" opacity="0.9"/>
-                    <ellipse cx="180" cy="265" rx="20" ry="12" fill="#87CEEB" opacity="0.9"/>
-                    <!-- BMW Kidney Grille -->
-                    <path d="M 700 265 Q 710 265 710 280 L 710 295 Q 710 305 700 305 L 690 305 Q 680 305 680 295 L 680 280 Q 680 265 690 265 Z" fill="#1a1a1a"/>
-                    <path d="M 715 267 Q 725 267 725 282 L 725 297 Q 725 307 715 307 L 705 307 Q 695 307 695 297 L 695 282 Q 695 267 705 267 Z" fill="#1a1a1a"/>
-                    <!-- M Stripe on side -->
-                    <rect x="350" y="240" width="80" height="15" fill="#81C4FF"/>
-                    <rect x="365" y="240" width="80" height="15" fill="#2B115A"/>
-                    <rect x="380" y="240" width="80" height="15" fill="#E7222E"/>
-                    <!-- Spoiler -->
-                    <path d="M 720 235 L 760 225 L 765 235 L 725 245 Z" fill="#333"/>
-                </svg>
-            </div>
+        <div class="ba-image ba-after">
+          <!-- Placeholder: Replace with actual after image -->
+          <img src="images/car-before.jpg" alt="After paint correction" loading="lazy">
+          <span class="ba-label">Before</span>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content scroll-reveal">
-                <div class="about-text">
-                    <h3>Our Commitment to Excellence</h3>
-                    <p>At M-Technologies, we specialize in providing premium BMW care and detailing services. Based in Overport, Durban, we take pride in our meticulous attention to detail and unwavering commitment to quality.</p>
-                    <p>Our comprehensive detailing service encompasses a thorough decontamination shampoo wash, rinse and clay bar treatment, followed by a shampoo wash, one-step cut, rinse, polish, wax and 12-month ceramic protection.</p>
-                    <ul class="about-features">
-                        <li>One-car-per-day policy for undivided attention</li>
-                        <li>Superior products and techniques</li>
-                        <li>6-hour meticulous detailing process</li>
-                        <li>12-month ceramic protection included</li>
-                        <li>Expert headlight restoration</li>
-                        <li>BMW parts and accessories specialist</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="300" fill="#16588E" rx="10"/>
-                        <text x="200" y="140" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">M-TECHNOLOGIES</text>
-                        <text x="200" y="170" font-family="Arial" font-size="16" fill="#81C4FF" text-anchor="middle">Detailing • Headlight Restoration</text>
-                        <text x="200" y="210" font-family="Arial" font-size="14" fill="white" text-anchor="middle">BMW Specialist</text>
-                        <circle cx="200" cy="80" r="40" fill="#E7222E" opacity="0.8"/>
-                        <text x="200" y="90" font-family="Arial" font-size="30" fill="white" text-anchor="middle" font-weight="bold">M</text>
-                    </svg>
-                </div>
-            </div>
+        <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+          <div class="ba-handle-inner">
+            <i class="fas fa-arrows-left-right"></i>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+    
+    <!-- Service Highlights -->
+    <div class="services-grid">
+      <div class="service-card glass reveal-on-scroll">
+        <i class="fas fa-sparkles service-icon"></i>
+        <h3>Paint Correction</h3>
+        <p>Multi-stage polishing to remove swirls, scratches & oxidation. Restore factory-depth gloss.</p>
+      </div>
+      <div class="service-card glass reveal-on-scroll">
+        <i class="fas fa-shield-alt service-icon"></i>
+        <h3>Ceramic Protection</h3>
+        <p>Long-lasting hydrophobic coating that repels water, dirt & UV damage for up to 3 years.</p>
+      </div>
+      <div class="service-card glass reveal-on-scroll">
+        <i class="fas fa-car-side service-icon"></i>
+        <h3>Full Interior Detail</h3>
+        <p>Deep steam cleaning, leather conditioning & odor elimination for a like-new cabin.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Our Services</h2>
-            <p class="section-subtitle scroll-reveal">Professional automotive care tailored for your BMW</p>
-            
-            <div class="services-grid">
-                <!-- Headlight Restoration -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-badge">R499</div>
-                    <div class="service-image">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Headlight Restoration</h3>
-                        <p>Restore your headlights to their former crystal clear OEM look and clarity. All oxidation removed professionally.</p>
-                        <div class="service-price">R499 <span>per vehicle</span></div>
-                        <ul class="service-features">
-                            <li>All oxidation removed</li>
-                            <li>Crystal clear restoration</li>
-                            <li>OEM look & clarity</li>
-                            <li>Quick turnaround</li>
-                            <li>Booking essential</li>
-                        </ul>
-                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Headlight%20Restoration%20service%20for%20R499.%20Please%20advise%20on%20availability." 
-                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Full Detailing - Standard -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-badge">SPECIAL</div>
-                    <div class="service-image" style="background: linear-gradient(135deg, #E7222E, #81C4FF);">
-                        <i class="fas fa-car-wash"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Full Detailing - Standard Cars</h3>
-                        <p>Complete exterior detailing package with 12-month ceramic protection. Approximately 6 hours of meticulous care.</p>
-                        <div class="service-price">R1299 <span>standard cars</span></div>
-                        <ul class="service-features">
-                            <li>Decontamination wash</li>
-                            <li>Clay bar treatment</li>
-                            <li>One-step cut & polish</li>
-                            <li>Wax application</li>
-                            <li>12-month ceramic protection</li>
-                            <li>6-hour process</li>
-                        </ul>
-                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20standard%20car%20at%20R1299.%20Please%20advise%20on%20availability." 
-                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Full Detailing - SUV -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-badge">SUV</div>
-                    <div class="service-image" style="background: linear-gradient(135deg, #2B115A, #81C4FF);">
-                        <i class="fas fa-truck-monster"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Full Detailing - SUV</h3>
-                        <p>Premium detailing package for SUVs with the same meticulous care and 12-month ceramic protection.</p>
-                        <div class="service-price">R1599 <span>SUV vehicles</span></div>
-                        <ul class="service-features">
-                            <li>Decontamination wash</li>
-                            <li>Clay bar treatment</li>
-                            <li>One-step cut & polish</li>
-                            <li>Wax application</li>
-                            <li>12-month ceramic protection</li>
-                            <li>6-hour process</li>
-                        </ul>
-                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20SUV%20at%20R1599.%20Please%20advise%20on%20availability." 
-                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- BMW Parts & Accessories -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-image" style="background: linear-gradient(135deg, #81C4FF, #16588E);">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>BMW Spares, Parts & Accessories</h3>
-                        <p>Your one-stop shop for genuine and quality BMW spares, parts, and accessories. Expert advice guaranteed.</p>
-                        <div class="service-price">Enquire <span>for pricing</span></div>
-                        <ul class="service-features">
-                            <li>Genuine BMW parts</li>
-                            <li>Quality accessories</li>
-                            <li>Expert consultation</li>
-                            <li>Competitive pricing</li>
-                            <li>Wide range available</li>
-                        </ul>
-                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20BMW%20spares%2C%20parts%20or%20accessories.%20Please%20assist." 
-                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                            <i class="fab fa-whatsapp"></i> Enquire Now
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <!-- PACKAGES SECTION (Glassmorphism Cards) -->
+  <section id="packages" class="packages-section">
+    <div class="section-header reveal-on-scroll">
+      <h2>Choose Your <span class="accent">Detailing Package</span></h2>
+      <p>Transparent pricing. No hidden fees. Mobile service across Gauteng.</p>
+    </div>
+    
+    <div class="packages-grid">
+      <!-- Emerald Package -->
+      <div class="package-card glass reveal-on-scroll" data-package="Emerald">
+        <div class="package-header">
+          <span class="package-tier emerald">Emerald</span>
+          <span class="package-price">R899</span>
         </div>
-    </section>
-
-        <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Before & After Gallery</h2>
-            <p class="section-subtitle scroll-reveal">See the transformation for yourself</p>
-            
-            <div class="comparison-container scroll-reveal">
-                
-                <!-- Comparison Item 1 -->
-                <div class="comparison-item">
-                    <div class="comparison-labels">
-                        <div>BEFORE</div>
-                        <div>AFTER</div>
-                    </div>
-                    <div class="comparison-images">
-                        <!-- REPLACE 'images/headlight-before.jpg' WITH YOUR IMAGE PATH -->
-                        <img src="images/before.jpg" alt="Headlight Before Restoration - Oxidized">
-                        
-                        <!-- REPLACE 'images/headlight-after.jpg' WITH YOUR IMAGE PATH -->
-                        <img src="images/after.jpg" alt="Headlight After Restoration - Crystal Clear">
-                        
-                        <div class="arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comparison Item 2 -->
-                <div class="comparison-item">
-                    <div class="comparison-labels">
-                        <div>BEFORE</div>
-                        <div>AFTER</div>
-                    </div>
-                    <div class="comparison-images">
-                        <!-- REPLACE 'images/detail-before.jpg' WITH YOUR IMAGE PATH -->
-                        <img src="images/before1.jpg" alt="Car Paint Before Detailing - Dull">
-                        
-                        <!-- REPLACE 'images/detail-after.jpg' WITH YOUR IMAGE PATH -->
-                        <img src="images/after1.jpg" alt="Car Paint After Detailing - Shiny">
-                        
-                        <div class="arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <ul class="package-features">
+          <li><i class="fas fa-check"></i> Exterior wash & dry</li>
+          <li><i class="fas fa-check"></i> Wheel & tire detail</li>
+          <li><i class="fas fa-check"></i> Interior vacuum & wipe</li>
+          <li><i class="fas fa-check"></i> Glass cleaning</li>
+          <li><i class="fas fa-check"></i> Spray wax protection</li>
+        </ul>
+        <button class="btn btn-package" data-package="Emerald">Select Emerald</button>
+      </div>
+      
+      <!-- Diamond Package (Featured) -->
+      <div class="package-card glass featured reveal-on-scroll" data-package="Diamond">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-header">
+          <span class="package-tier diamond">Diamond</span>
+          <span class="package-price">R1,899</span>
         </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Our Pricing</h2>
-            <p class="section-subtitle scroll-reveal">Transparent pricing for premium services</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card scroll-reveal">
-                    <h3>Headlight Restoration</h3>
-                    <div class="pricing-amount">
-                        R499
-                        <span>per vehicle</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Complete oxidation removal</li>
-                        <li>Crystal clear restoration</li>
-                        <li>OEM look & clarity</li>
-                        <li>Professional finish</li>
-                        <li>Quick service</li>
-                    </ul>
-                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Headlight%20Restoration%20service%20for%20R499.%20Please%20advise%20on%20availability." 
-                       class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                        <i class="fab fa-whatsapp"></i> Book Now
-                    </a>
-                </div>
-
-                <div class="pricing-card featured scroll-reveal">
-                    <h3>Full Detailing - Standard</h3>
-                    <div class="pricing-amount">
-                        R1299
-                        <span>standard cars</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Decontamination wash</li>
-                        <li>Clay bar treatment</li>
-                        <li>One-step cut & polish</li>
-                        <li>Wax application</li>
-                        <li>12-month ceramic protection</li>
-                        <li>6-hour meticulous process</li>
-                        <li>One-car-per-day policy</li>
-                    </ul>
-                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20standard%20car%20at%20R1299.%20Please%20advise%20on%20availability." 
-                       class="btn btn-primary" target="_blank" style="width: 100%; justify-content: center; background: var(--bmw-red); color: white;">
-                        <i class="fab fa-whatsapp"></i> Book Now
-                    </a>
-                </div>
-
-                <div class="pricing-card scroll-reveal">
-                    <h3>Full Detailing - SUV</h3>
-                    <div class="pricing-amount">
-                        R1599
-                        <span>SUV vehicles</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Decontamination wash</li>
-                        <li>Clay bar treatment</li>
-                        <li>One-step cut & polish</li>
-                        <li>Wax application</li>
-                        <li>12-month ceramic protection</li>
-                        <li>6-hour meticulous process</li>
-                        <li>One-car-per-day policy</li>
-                    </ul>
-                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20SUV%20at%20R1599.%20Please%20advise%20on%20availability." 
-                       class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
-                        <i class="fab fa-whatsapp"></i> Book Now
-                    </a>
-                </div>
-            </div>
-            
-            <p class="vat-notice">*All prices exclude VAT. Booking is essential for all services.</p>
+        <ul class="package-features">
+          <li><i class="fas fa-check"></i> <strong>Everything in Emerald</strong></li>
+          <li><i class="fas fa-check"></i> Clay bar decontamination</li>
+          <li><i class="fas fa-check"></i> Light paint correction</li>
+          <li><i class="fas fa-check"></i> Leather conditioning</li>
+          <li><i class="fas fa-check"></i> 6-month sealant protection</li>
+        </ul>
+        <button class="btn btn-package btn-primary" data-package="Diamond">Select Diamond</button>
+      </div>
+      
+      <!-- Sapphire Package -->
+      <div class="package-card glass reveal-on-scroll" data-package="Sapphire">
+        <div class="package-header">
+          <span class="package-tier sapphire">Sapphire</span>
+          <span class="package-price">R3,499</span>
         </div>
-    </section>
+        <ul class="package-features">
+          <li><i class="fas fa-check"></i> <strong>Everything in Diamond</strong></li>
+          <li><i class="fas fa-check"></i> Multi-stage paint correction</li>
+          <li><i class="fas fa-check"></i> Engine bay detail</li>
+          <li><i class="fas fa-check"></i> Ceramic coating (1-year)</li>
+          <li><i class="fas fa-check"></i> Complimentary maintenance wash</li>
+        </ul>
+        <button class="btn btn-package" data-package="Sapphire">Select Sapphire</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Get In Touch</h2>
-            <p class="section-subtitle scroll-reveal" style="color: #ccc;">Ready to transform your BMW? Contact us today</p>
-            
-            <div class="contact-content scroll-reveal">
-                <div class="contact-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp Us</h3>
-                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20make%20a%20booking." target="_blank">
-                        0786 208 238
-                    </a>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-user"></i>
-                    <h3>Contact Person</h3>
-                    <p>Muhammed Moosa</p>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Overport, Durban<br>South Africa</p>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Booking Hours</h3>
-                    <p>By Appointment Only<br>Booking Essential</p>
-                </div>
-            </div>
+  <!-- CONTACT / FOOTER -->
+  <section id="contact" class="contact-section">
+    <div class="contact-content glass reveal-on-scroll">
+      <h2>Ready for a <span class="accent">Showroom Shine?</span></h2>
+      <p>Mobile service across Pretoria, Centurion, Midrand, Sandton & surrounding Gauteng areas.</p>
+      
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/27813833936" target="_blank">+27 81 383 3936</a>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Hivetimes.co.za All Rights Reserved.</p>
-        <p>Specialist in BMW Spares, Parts & Accessories</p>
-        <p>Detailing • Headlight Restoration</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Gauteng, South Africa</span>
         </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Mon–Sat: 8AM–6PM</span>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Sapphire Auto Detailing. All rights reserved.</p>
+      <p class="footer-note">Premium mobile auto detailing services. We don't sell products — just exceptional results.</p>
     </footer>
+  </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I%20visited%20your%20website%20and%20would%20like%20more%20information." 
-       class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- JavaScript -->
-    <script>
-        // Scroll Reveal Animation
-        const scrollReveal = () => {
-            const elements = document.querySelectorAll('.scroll-reveal');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', scrollReveal);
-        window.addEventListener('load', scrollReveal);
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-
-        // Smooth Scroll for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+  <!-- WhatsApp Modal (Hidden by default) -->
+  <div id="whatsapp-modal" class="modal" aria-hidden="true">
+    <div class="modal-content glass">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>📱 Complete Your Booking</h3>
+      <p>Message will open in WhatsApp with your details pre-filled.</p>
+      
+      <form id="whatsapp-form">
+        <label>
+          <span>Package</span>
+          <select id="modal-package" required>
+            <option value="">Select a package</option>
+            <option value="Emerald">💚 Emerald — R899</option>
+            <option value="Diamond">💎 Diamond — R1,899</option>
+            <option value="Sapphire">💙 Sapphire — R3,499</option>
+          </select>
+        </label>
         
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'white';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.padding = '1rem';
-                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+        <label>
+          <span>Vehicle Model</span>
+          <input type="text" id="modal-vehicle" placeholder="e.g., BMW 3 Series, VW Polo" required>
+        </label>
+        
+        <label>
+          <span>Location</span>
+          <input type="text" id="modal-location" placeholder="e.g., Centurion, Sandton" required>
+        </label>
+        
+        <label>
+          <span>Preferred Date</span>
+          <input type="date" id="modal-date" required>
+        </label>
+        
+        <button type="submit" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> Send via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /**
+     * Sapphire Auto Detailing - Complete JavaScript
+     * Handles: scroll animations, mobile menu, WhatsApp modal, form submission, 3D scene, slider
+     */
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // ===== Update Footer Year =====
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // ===== Sticky Header on Scroll =====
+      const header = document.querySelector('.site-header');
+      const onScroll = () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // ===== Mobile Menu Toggle =====
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      hamburger?.addEventListener('click', () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('active');
+        
+        // Animate hamburger lines
+        const lines = hamburger.querySelectorAll('.hamburger-line');
+        if (!isExpanded) {
+          lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          lines[1].style.opacity = '0';
+          lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        } else {
+          lines[0].style.transform = 'none';
+          lines[1].style.opacity = '1';
+          lines[2].style.transform = 'none';
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.menu-item').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          const lines = hamburger.querySelectorAll('.hamburger-line');
+          lines[0].style.transform = 'none';
+          lines[1].style.opacity = '1';
+          lines[2].style.transform = 'none';
+        });
+      });
+
+      // ===== Reveal on Scroll Animation =====
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ===== WhatsApp Modal Logic =====
+      const whatsappCTA = document.getElementById('whatsapp-cta');
+      const modal = document.getElementById('whatsapp-modal');
+      const modalClose = document.querySelector('.modal-close');
+      const packageButtons = document.querySelectorAll('.btn-package');
+      const modalPackageSelect = document.getElementById('modal-package');
+      const whatsappForm = document.getElementById('whatsapp-form');
+
+      // Open modal from sticky CTA or package buttons
+      const openModal = (selectedPackage = '') => {
+        if (selectedPackage) {
+          modalPackageSelect.value = selectedPackage;
+        }
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus first input for accessibility
+        setTimeout(() => {
+          modalPackageSelect.focus();
+        }, 300);
+      };
+
+      const closeModal = () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      whatsappCTA?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+
+      packageButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const pkg = btn.dataset.package;
+          openModal(pkg);
+        });
+      });
+
+      modalClose?.addEventListener('click', closeModal);
+      
+      // Close modal when clicking outside content
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // ===== WhatsApp Form Submission =====
+      whatsappForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const pkg = document.getElementById('modal-package').value;
+        const vehicle = document.getElementById('modal-vehicle').value.trim();
+        const location = document.getElementById('modal-location').value.trim();
+        const date = document.getElementById('modal-date').value;
+        
+        if (!pkg || !vehicle || !location || !date) {
+          alert('Please fill in all fields to proceed.');
+          return;
+        }
+        
+        // Craft the pre-filled WhatsApp message
+        const message = `Hi Mohammed! I'm interested in booking a detailing session for my vehicle.
+
+Package: ${pkg}
+Vehicle Model: ${vehicle}
+Location: ${location}
+Preferred Date: ${date}
+
+Please let me know your availability!`;
+        
+        // URL encode the message
+        const encodedMessage = encodeURIComponent(message);
+        
+        // WhatsApp API link (South Africa format)
+        const whatsappURL = `https://wa.me/27813833936?text=${encodedMessage}`;
+        
+        // Open WhatsApp in new tab
+        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+        
+        // Close modal and reset form
+        closeModal();
+        whatsappForm.reset();
+      });
+
+      // ===== Smooth Scroll for Anchor Links =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // ===== Set min date for date picker to today =====
+      const dateInput = document.getElementById('modal-date');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+      }
+
+      // ===== Before/After Slider =====
+      initBeforeAfterSlider();
+
+      // ===== Three.js Car Scene (with fallback) =====
+      initCarScene();
+    });
+
+    /**
+     * Before/After Image Slider Function
+     */
+    function initBeforeAfterSlider() {
+      const slider = document.getElementById('ba-slider');
+      if (!slider) return;
+
+      const afterImage = slider.querySelector('.ba-after');
+      const handle = slider.querySelector('.ba-handle');
+      let isDragging = false;
+      let startX = 0;
+      let currentPercent = 50;
+
+      const updateSlider = (percent) => {
+        currentPercent = Math.max(0, Math.min(100, percent));
+        afterImage.style.width = `${currentPercent}%`;
+        handle.style.left = `${currentPercent}%`;
+        handle.setAttribute('aria-valuenow', Math.round(currentPercent));
+      };
+
+      const onMouseDown = (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        slider.setPointerCapture?.(e.pointerId || 1);
+        document.body.style.cursor = 'ew-resize';
+        e.preventDefault();
+      };
+
+      const onMouseMove = (e) => {
+        if (!isDragging) return;
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percent = (x / rect.width) * 100;
+        updateSlider(percent);
+      };
+
+      const onMouseUp = () => {
+        if (isDragging) {
+          isDragging = false;
+          document.body.style.cursor = '';
+          slider.releasePointerCapture?.(1);
+        }
+      };
+
+      const onTouchStart = (e) => {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        e.preventDefault();
+      };
+
+      const onTouchMove = (e) => {
+        if (!isDragging) return;
+        const rect = slider.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const percent = (x / rect.width) * 100;
+        updateSlider(percent);
+      };
+
+      const onTouchEnd = () => { isDragging = false; };
+
+      const onKeydown = (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          updateSlider(currentPercent - 2);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          updateSlider(currentPercent + 2);
+        }
+      };
+
+      handle.addEventListener('mousedown', onMouseDown);
+      handle.addEventListener('touchstart', onTouchStart, { passive: false });
+      handle.addEventListener('keydown', onKeydown);
+      
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+      document.addEventListener('touchmove', onTouchMove, { passive: false });
+      document.addEventListener('touchend', onTouchEnd);
+      
+      slider.querySelectorAll('img').forEach(img => {
+        img.addEventListener('dragstart', (e) => e.preventDefault());
+      });
+
+      updateSlider(50);
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting && isDragging) {
+            isDragging = false;
+            document.body.style.cursor = '';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(slider);
+    }
+
+    /**
+     * Three.js Car Scene with Scroll Rotation & Fallback
+     */
+    function initCarScene() {
+      const container = document.getElementById('car-scene');
+      if (!container || typeof THREE === 'undefined') {
+        // Fallback: Show elegant placeholder if Three.js fails to load
+        if (container) {
+          container.innerHTML = `
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative">
+              <div style="text-align:center;color:var(--text-secondary);padding:40px;max-width:400px">
+                <i class="fas fa-car-side" style="font-size:4rem;color:var(--sapphire-blue);margin-bottom:20px;opacity:0.8"></i>
+                <h3 style="font-size:1.4rem;margin-bottom:12px">Premium 3D Preview</h3>
+                <p style="font-size:0.95rem;line-height:1.5">Scroll to see our craftsmanship in action. Full 3D experience loads with connection.</p>
+                <div style="margin-top:24px;display:flex;gap:8px;justify-content:center">
+                  <span style="width:8px;height:8px;border-radius:50%;background:var(--sapphire-blue);animation:pulseDot 1.5s infinite"></span>
+                  <span style="width:8px;height:8px;border-radius:50%;background:var(--sapphire-blue);animation:pulseDot 1.5s infinite 0.2s"></span>
+                  <span style="width:8px;height:8px;border-radius:50%;background:var(--sapphire-blue);animation:pulseDot 1.5s infinite 0.4s"></span>
+                </div>
+              </div>
+            </div>
+            <style>@keyframes pulseDot{0%,100%{opacity:0.4}50%{opacity:1}}</style>
+          `;
+        }
+        return;
+      }
+
+      // ===== Scene Setup =====
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ 
+        alpha: true, 
+        antialias: true,
+        powerPreference: "high-performance"
+      });
+      
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.2;
+      container.appendChild(renderer.domElement);
+
+      // ===== Lighting - Premium Automotive Setup =====
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      scene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+      keyLight.position.set(5, 8, 5);
+      keyLight.castShadow = true;
+      keyLight.shadow.mapSize.set(1024, 1024);
+      scene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0x4A90E2, 0.6);
+      fillLight.position.set(-5, 2, -3);
+      scene.add(fillLight);
+
+      const rimLight = new THREE.SpotLight(0xffffff, 0.8);
+      rimLight.position.set(0, 3, -8);
+      rimLight.penumbra = 0.5;
+      scene.add(rimLight);
+
+      // ===== Ground Reflection =====
+      const groundGeometry = new THREE.PlaneGeometry(20, 20);
+      const groundMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0x0a0e17,
+        metalness: 0.9,
+        roughness: 0.1,
+        side: THREE.DoubleSide
+      });
+      const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+      ground.rotation.x = -Math.PI / 2;
+      ground.position.y = -2.5;
+      ground.receiveShadow = true;
+      scene.add(ground);
+
+      // ===== Camera Position =====
+      camera.position.set(0, 1.5, 7);
+      camera.lookAt(0, 0, 0);
+
+      // ===== Load 3D Car Model =====
+      let carModel = null;
+      const loader = new THREE.GLTFLoader();
+      
+      // Try to load model - with graceful fallback
+      loader.load(
+        'assets/models/car.glb', // ⚠️ REPLACE WITH YOUR MODEL PATH
+        (gltf) => {
+          carModel = gltf.scene;
+          carModel.position.set(0, -1.2, 0);
+          carModel.scale.set(1.8, 1.8, 1.8);
+          carModel.rotation.y = Math.PI * 0.15;
+          
+          carModel.traverse((node) => {
+            if (node.isMesh) {
+              node.castShadow = true;
+              node.receiveShadow = true;
+              if (node.material) {
+                node.material.metalness = 0.85;
+                node.material.roughness = 0.15;
+                node.material.envMapIntensity = 1.5;
+              }
             }
-        });
-
-        // Add active class to navigation based on scroll position
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
+          });
+          
+          scene.add(carModel);
+        },
+        (xhr) => {
+          console.log(`Car model loaded: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+        },
+        (error) => {
+          console.warn('Car model not found - using elegant fallback');
+          // Create simple glossy sphere as placeholder
+          const placeholderGeo = new THREE.SphereGeometry(2, 32, 32);
+          const placeholderMat = new THREE.MeshStandardMaterial({
+            color: 0x4A90E2,
+            metalness: 0.9,
+            roughness: 0.1,
+            emissive: 0x1a3a5c,
+            emissiveIntensity: 0.3
+          });
+          carModel = new THREE.Mesh(placeholderGeo, placeholderMat);
+          carModel.position.set(0, -0.5, 0);
+          scene.add(carModel);
+          
+          // Add subtle animated rings
+          for(let i=0; i<3; i++) {
+            const ringGeo = new THREE.TorusGeometry(2.5 + i*0.4, 0.03, 16, 100);
+            const ringMat = new THREE.MeshBasicMaterial({ 
+              color: 0x4A90E2, 
+              transparent: true, 
+              opacity: 0.3 - i*0.08 
             });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.rotation.x = Math.PI/2;
+            ring.position.y = -1.8;
+            scene.add(ring);
+          }
+        }
+      );
 
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.style.color = '';
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.color = 'var(--bmw-red)';
-                }
-            });
-        });
-    </script>
+      // ===== Scroll-Triggered Rotation =====
+      let targetRotationY = 0;
+      let currentRotationY = 0;
+      
+      const onScroll = () => {
+        const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        targetRotationY = THREE.MathUtils.lerp(-0.3, 0.3, scrollPercent);
+      };
+      
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // ===== Animation Loop =====
+      const clock = new THREE.Clock();
+      
+      const animate = () => {
+        requestAnimationFrame(animate);
+        
+        const delta = clock.getDelta();
+        
+        if (carModel) {
+          currentRotationY = THREE.MathUtils.damp(currentRotationY, targetRotationY, 4, delta);
+          carModel.rotation.y = currentRotationY;
+          carModel.position.y = -1.2 + Math.sin(Date.now() * 0.001) * 0.03;
+        }
+        
+        if (!carModel) {
+          scene.rotation.y += 0.002;
+        }
+        
+        renderer.render(scene, camera);
+      };
+      
+      animate();
+
+      // ===== Responsive Resize =====
+      const onResize = () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      };
+      
+      window.addEventListener('resize', onResize);
+      onResize();
+
+      // ===== Cleanup =====
+      window.addEventListener('beforeunload', () => {
+        renderer.dispose();
+        if (carModel) {
+          carModel.traverse((node) => {
+            if (node.geometry) node.geometry.dispose();
+            if (node.material) {
+              if (Array.isArray(node.material)) {
+                node.material.forEach(mat => mat.dispose());
+              } else {
+                node.material.dispose();
+              }
+            }
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
