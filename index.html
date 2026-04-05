@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="M-Technologies - Specialist in BMW Spares, Parts, Accessories, Detailing & Headlight Restoration in Overport, Durban">
+    <meta name="keywords" content="BMW, detailing, headlight restoration, BMW parts, Durban, Overport">
+    <title>M-Technologies | BMW Specialist - Detailing & Headlight Restoration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bmw-light-blue: #81C4FF;
+            --bmw-dark-blue: #16588E;
+            --bmw-red: #E7222E;
+            --bmw-purple: #2B115A;
+            --whatsapp-green: #25D366;
+            --dark: #1a1a1a;
+            --gray: #2d2d2d;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .logo-colors {
+            display: flex;
+            gap: 3px;
+        }
+
+        .logo-colors span {
+            width: 15px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        .logo-colors .light-blue { background: var(--bmw-light-blue); }
+        .logo-colors .purple { background: var(--bmw-purple); }
+        .logo-colors .red { background: var(--bmw-red); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--bmw-dark-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bmw-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--bmw-light-blue) 0%, var(--bmw-dark-blue) 50%, var(--bmw-purple) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            color: var(--bmw-light-blue);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--bmw-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #c41c26;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(231, 34, 46, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp-green);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .hero-image {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bmw-light-blue), var(--bmw-red));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--bmw-dark-blue);
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .about-features li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--bmw-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--bmw-red);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .service-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--bmw-dark-blue), var(--bmw-light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bmw-red);
+            margin-bottom: 1rem;
+        }
+
+        .service-price span {
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '▸ ';
+            color: var(--bmw-dark-blue);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Before/After Gallery */
+        .gallery {
+            background: var(--light-gray);
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-labels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .comparison-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            position: relative;
+        }
+
+        .comparison-images img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--whatsapp-green);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 3px solid var(--bmw-light-blue);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--bmw-red);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bmw-red);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--bmw-red);
+            margin: 1rem 0;
+        }
+
+        .pricing-amount span {
+            font-size: 1rem;
+            color: #999;
+            display: block;
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-features li::before {
+            content: '✓ ';
+            color: var(--whatsapp-green);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .vat-notice {
+            text-align: center;
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--bmw-light-blue);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--bmw-light-blue);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-card a:hover {
+            color: var(--white);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--bmw-light-blue);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1) translateY(-10px);
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px;
+    }
+}
+    </style>
+</head>
+<body>
+
+ <!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="M-Technologies Logo" class="logo-image">
+        </div>
+            <!-- START HIVE TIMES BADGE (YELLOW EDITION) -->
+<style>
+  /* Badge Container */
+  .hive-badge-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFD700; /* Bright Honey Yellow */
+    border: 2px solid #E5C100; /* Slightly darker yellow border */
+    border-radius: 50px; /* Pill shape */
+    padding: 6px 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* The Honeycomb Icon (SVG) */
+  .hive-icon-svg {
+    width: 18px;
+    height: 18px;
+    fill: #000000; /* Black icon for contrast against yellow */
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Text Container */
+  .hive-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  /* Main Text */
+  .hive-text {
+    color: #000000; /* Black text for readability */
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Sub Text */
+  .hive-subtext {
+    font-size: 9px;
+    font-weight: 600;
+    color: #333333;
+    text-transform: uppercase;
+  }
+
+  /* Hover Effects */
+  .hive-badge-link:hover {
+    background-color: #E5C100; /* Darker yellow on hover */
+    border-color: #C9A900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .hive-badge-link:hover .hive-icon-svg {
+    transform: scale(1.1); /* Icon grows slightly */
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 480px) {
+    .hive-badge-link {
+      padding: 5px 10px;
+    }
+    .hive-icon-svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+    .hive-text {
+      font-size: 11px;
+    }
+    .hive-subtext {
+      font-size: 8px;
+      /* Keep subtext on mobile but ensure it fits */
+    }
+  }
+</style>
+
+<!-- The Link -->
+<a href="https://hivetimes.co.za" class="hive-badge-link" target="_blank" rel="noopener" title="Visit Hive Times">
+  
+  <!-- Honeycomb SVG Icon -->
+  <svg class="hive-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L14.5 6.5L19 6.5L16.5 11L19 15.5L14.5 15.5L12 20L9.5 15.5L5 15.5L7.5 11L5 6.5L9.5 6.5L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+    <path d="M12 7L13.5 9.5L16 9.5L14.5 12L16 14.5L13.5 14.5L12 17L10.5 14.5L8 14.5L9.5 12L8 9.5L10.5 9.5L12 7Z" fill="currentColor"/>
+  </svg>
+
+  <div class="hive-text-group">
+    <span class="hive-text">HIVE</span>
+    <span class="hive-subtext">Member</span>
+  </div>
+
+</a>
+<!-- END HIVE TIMES BADGE -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Specialist in BMW</h1>
+                <h2>Spares, Parts & Accessories</h2>
+                <p>Professional detailing and headlight restoration services in Overport, Durban. Experience excellence with our one-car-per-day policy.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <i class="fas fa-cog"></i> Our Services
+                    </a>
+                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20your%20services.%20Please%20assist." class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Simplified BMW M4 illustration -->
+                    <defs>
+                        <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Car body -->
+                    <path d="M 100 280 Q 100 250 150 240 L 200 235 L 250 220 L 450 210 L 650 220 L 720 240 Q 750 250 750 280 L 750 320 L 700 330 L 700 310 Q 700 290 680 285 L 650 280 L 650 340 L 600 350 L 600 330 L 250 330 L 250 350 L 200 340 L 200 290 L 150 295 Q 120 300 120 320 L 120 330 L 50 320 L 50 280 Z" 
+                          fill="url(#carGradient)" stroke="#333" stroke-width="2"/>
+                    <!-- Windows -->
+                    <path d="M 260 225 L 440 220 L 430 270 L 270 275 Z" fill="#2a2a2a" opacity="0.8"/>
+                    <path d="M 460 218 L 640 228 L 635 275 L 455 270 Z" fill="#2a2a2a" opacity="0.8"/>
+                    <!-- Wheels -->
+                    <circle cx="225" cy="340" r="50" fill="#1a1a1a"/>
+                    <circle cx="225" cy="340" r="35" fill="url(#wheelGradient)"/>
+                    <circle cx="625" cy="340" r="50" fill="#1a1a1a"/>
+                    <circle cx="625" cy="340" r="35" fill="url(#wheelGradient)"/>
+                    <!-- Wheel rims with gold color -->
+                    <defs>
+                        <radialGradient id="wheelGradient">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="225" cy="340" r="20" fill="#FFD700"/>
+                    <circle cx="625" cy="340" r="20" fill="#FFD700"/>
+                    <!-- Headlights -->
+                    <ellipse cx="680" cy="260" rx="25" ry="15" fill="#87CEEB" opacity="0.9"/>
+                    <ellipse cx="180" cy="265" rx="20" ry="12" fill="#87CEEB" opacity="0.9"/>
+                    <!-- BMW Kidney Grille -->
+                    <path d="M 700 265 Q 710 265 710 280 L 710 295 Q 710 305 700 305 L 690 305 Q 680 305 680 295 L 680 280 Q 680 265 690 265 Z" fill="#1a1a1a"/>
+                    <path d="M 715 267 Q 725 267 725 282 L 725 297 Q 725 307 715 307 L 705 307 Q 695 307 695 297 L 695 282 Q 695 267 705 267 Z" fill="#1a1a1a"/>
+                    <!-- M Stripe on side -->
+                    <rect x="350" y="240" width="80" height="15" fill="#81C4FF"/>
+                    <rect x="365" y="240" width="80" height="15" fill="#2B115A"/>
+                    <rect x="380" y="240" width="80" height="15" fill="#E7222E"/>
+                    <!-- Spoiler -->
+                    <path d="M 720 235 L 760 225 L 765 235 L 725 245 Z" fill="#333"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content scroll-reveal">
+                <div class="about-text">
+                    <h3>Our Commitment to Excellence</h3>
+                    <p>At M-Technologies, we specialize in providing premium BMW care and detailing services. Based in Overport, Durban, we take pride in our meticulous attention to detail and unwavering commitment to quality.</p>
+                    <p>Our comprehensive detailing service encompasses a thorough decontamination shampoo wash, rinse and clay bar treatment, followed by a shampoo wash, one-step cut, rinse, polish, wax and 12-month ceramic protection.</p>
+                    <ul class="about-features">
+                        <li>One-car-per-day policy for undivided attention</li>
+                        <li>Superior products and techniques</li>
+                        <li>6-hour meticulous detailing process</li>
+                        <li>12-month ceramic protection included</li>
+                        <li>Expert headlight restoration</li>
+                        <li>BMW parts and accessories specialist</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#16588E" rx="10"/>
+                        <text x="200" y="140" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">M-TECHNOLOGIES</text>
+                        <text x="200" y="170" font-family="Arial" font-size="16" fill="#81C4FF" text-anchor="middle">Detailing • Headlight Restoration</text>
+                        <text x="200" y="210" font-family="Arial" font-size="14" fill="white" text-anchor="middle">BMW Specialist</text>
+                        <circle cx="200" cy="80" r="40" fill="#E7222E" opacity="0.8"/>
+                        <text x="200" y="90" font-family="Arial" font-size="30" fill="white" text-anchor="middle" font-weight="bold">M</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Our Services</h2>
+            <p class="section-subtitle scroll-reveal">Professional automotive care tailored for your BMW</p>
+            
+            <div class="services-grid">
+                <!-- Headlight Restoration -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-badge">R499</div>
+                    <div class="service-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Headlight Restoration</h3>
+                        <p>Restore your headlights to their former crystal clear OEM look and clarity. All oxidation removed professionally.</p>
+                        <div class="service-price">R499 <span>per vehicle</span></div>
+                        <ul class="service-features">
+                            <li>All oxidation removed</li>
+                            <li>Crystal clear restoration</li>
+                            <li>OEM look & clarity</li>
+                            <li>Quick turnaround</li>
+                            <li>Booking essential</li>
+                        </ul>
+                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Headlight%20Restoration%20service%20for%20R499.%20Please%20advise%20on%20availability." 
+                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Full Detailing - Standard -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-badge">SPECIAL</div>
+                    <div class="service-image" style="background: linear-gradient(135deg, #E7222E, #81C4FF);">
+                        <i class="fas fa-car-wash"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Full Detailing - Standard Cars</h3>
+                        <p>Complete exterior detailing package with 12-month ceramic protection. Approximately 6 hours of meticulous care.</p>
+                        <div class="service-price">R1299 <span>standard cars</span></div>
+                        <ul class="service-features">
+                            <li>Decontamination wash</li>
+                            <li>Clay bar treatment</li>
+                            <li>One-step cut & polish</li>
+                            <li>Wax application</li>
+                            <li>12-month ceramic protection</li>
+                            <li>6-hour process</li>
+                        </ul>
+                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20standard%20car%20at%20R1299.%20Please%20advise%20on%20availability." 
+                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Full Detailing - SUV -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-badge">SUV</div>
+                    <div class="service-image" style="background: linear-gradient(135deg, #2B115A, #81C4FF);">
+                        <i class="fas fa-truck-monster"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Full Detailing - SUV</h3>
+                        <p>Premium detailing package for SUVs with the same meticulous care and 12-month ceramic protection.</p>
+                        <div class="service-price">R1599 <span>SUV vehicles</span></div>
+                        <ul class="service-features">
+                            <li>Decontamination wash</li>
+                            <li>Clay bar treatment</li>
+                            <li>One-step cut & polish</li>
+                            <li>Wax application</li>
+                            <li>12-month ceramic protection</li>
+                            <li>6-hour process</li>
+                        </ul>
+                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20SUV%20at%20R1599.%20Please%20advise%20on%20availability." 
+                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BMW Parts & Accessories -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-image" style="background: linear-gradient(135deg, #81C4FF, #16588E);">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>BMW Spares, Parts & Accessories</h3>
+                        <p>Your one-stop shop for genuine and quality BMW spares, parts, and accessories. Expert advice guaranteed.</p>
+                        <div class="service-price">Enquire <span>for pricing</span></div>
+                        <ul class="service-features">
+                            <li>Genuine BMW parts</li>
+                            <li>Quality accessories</li>
+                            <li>Expert consultation</li>
+                            <li>Competitive pricing</li>
+                            <li>Wide range available</li>
+                        </ul>
+                        <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20BMW%20spares%2C%20parts%20or%20accessories.%20Please%20assist." 
+                           class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> Enquire Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Before & After Gallery</h2>
+            <p class="section-subtitle scroll-reveal">See the transformation for yourself</p>
+            
+            <div class="comparison-container scroll-reveal">
+                
+                <!-- Comparison Item 1 -->
+                <div class="comparison-item">
+                    <div class="comparison-labels">
+                        <div>BEFORE</div>
+                        <div>AFTER</div>
+                    </div>
+                    <div class="comparison-images">
+                        <!-- REPLACE 'images/headlight-before.jpg' WITH YOUR IMAGE PATH -->
+                        <img src="images/before.jpg" alt="Headlight Before Restoration - Oxidized">
+                        
+                        <!-- REPLACE 'images/headlight-after.jpg' WITH YOUR IMAGE PATH -->
+                        <img src="images/after.jpg" alt="Headlight After Restoration - Crystal Clear">
+                        
+                        <div class="arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Item 2 -->
+                <div class="comparison-item">
+                    <div class="comparison-labels">
+                        <div>BEFORE</div>
+                        <div>AFTER</div>
+                    </div>
+                    <div class="comparison-images">
+                        <!-- REPLACE 'images/detail-before.jpg' WITH YOUR IMAGE PATH -->
+                        <img src="images/before1.jpg" alt="Car Paint Before Detailing - Dull">
+                        
+                        <!-- REPLACE 'images/detail-after.jpg' WITH YOUR IMAGE PATH -->
+                        <img src="images/after1.jpg" alt="Car Paint After Detailing - Shiny">
+                        
+                        <div class="arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Our Pricing</h2>
+            <p class="section-subtitle scroll-reveal">Transparent pricing for premium services</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card scroll-reveal">
+                    <h3>Headlight Restoration</h3>
+                    <div class="pricing-amount">
+                        R499
+                        <span>per vehicle</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Complete oxidation removal</li>
+                        <li>Crystal clear restoration</li>
+                        <li>OEM look & clarity</li>
+                        <li>Professional finish</li>
+                        <li>Quick service</li>
+                    </ul>
+                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Headlight%20Restoration%20service%20for%20R499.%20Please%20advise%20on%20availability." 
+                       class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+
+                <div class="pricing-card featured scroll-reveal">
+                    <h3>Full Detailing - Standard</h3>
+                    <div class="pricing-amount">
+                        R1299
+                        <span>standard cars</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Decontamination wash</li>
+                        <li>Clay bar treatment</li>
+                        <li>One-step cut & polish</li>
+                        <li>Wax application</li>
+                        <li>12-month ceramic protection</li>
+                        <li>6-hour meticulous process</li>
+                        <li>One-car-per-day policy</li>
+                    </ul>
+                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20standard%20car%20at%20R1299.%20Please%20advise%20on%20availability." 
+                       class="btn btn-primary" target="_blank" style="width: 100%; justify-content: center; background: var(--bmw-red); color: white;">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+
+                <div class="pricing-card scroll-reveal">
+                    <h3>Full Detailing - SUV</h3>
+                    <div class="pricing-amount">
+                        R1599
+                        <span>SUV vehicles</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Decontamination wash</li>
+                        <li>Clay bar treatment</li>
+                        <li>One-step cut & polish</li>
+                        <li>Wax application</li>
+                        <li>12-month ceramic protection</li>
+                        <li>6-hour meticulous process</li>
+                        <li>One-car-per-day policy</li>
+                    </ul>
+                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I'm%20interested%20in%20booking%20the%20Full%20Detailing%20Package%20for%20my%20SUV%20at%20R1599.%20Please%20advise%20on%20availability." 
+                       class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <p class="vat-notice">*All prices exclude VAT. Booking is essential for all services.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Get In Touch</h2>
+            <p class="section-subtitle scroll-reveal" style="color: #ccc;">Ready to transform your BMW? Contact us today</p>
+            
+            <div class="contact-content scroll-reveal">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Us</h3>
+                    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20make%20a%20booking." target="_blank">
+                        0786 208 238
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-user"></i>
+                    <h3>Contact Person</h3>
+                    <p>Muhammed Moosa</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Overport, Durban<br>South Africa</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Booking Hours</h3>
+                    <p>By Appointment Only<br>Booking Essential</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hivetimes.co.za All Rights Reserved.</p>
+        <p>Specialist in BMW Spares, Parts & Accessories</p>
+        <p>Detailing • Headlight Restoration</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27786208238?text=Hi%20Muhammed%2C%20I%20visited%20your%20website%20and%20would%20like%20more%20information." 
+       class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Scroll Reveal Animation
+        const scrollReveal = () => {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add active class to navigation based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--bmw-red)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
