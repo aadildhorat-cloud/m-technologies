@@ -776,8 +776,6 @@
         <div class="logo">
             <img src="images/logo.jpg" alt="M-Technologies Logo" class="logo-image">
         
-        </div>
-            <!-- START HIVE TIMES BADGE (YELLOW EDITION) -->
 <style>
   /* Badge Container */
   .hive-badge-link {
@@ -844,7 +842,7 @@
   /* Mobile Adjustments */
   @media (max-width: 480px) {
     .hive-badge-link {
-      padding: 5px 10px;
+      padding: 4px 8px;
     }
     .hive-icon-svg {
       width: 16px;
@@ -852,7 +850,10 @@
       margin-right: 6px;
     }
     .hive-text {
-      font-size: 11px;
+     
+        .hive-text { font-size: 10px; }
+    .hive-subtext { font-size: 7px; display: none; } /* Hide subtext on very small screens */
+    .hive-icon-svg { width: 14px; height: 14px; }
     }
     .hive-subtext {
       font-size: 8px;
